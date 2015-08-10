@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script>
+
+  function get_data(){
+
+    $.get("new.php", function(data,status){
+            alert("Data: " + data + "\nStatus: " + status)});
+
+  }
+
+  function post_data(){
+
+    var n=document.getElementById('name').value;
+    var n1=document.getElementById('Email').value;
+    $.post("new1.php",
+            {name: n,
+          Email: n1}
+            ,function(data,status){
+            alert("Data: " + data + "\nStatus: " + status)});
+
+  }
+
+
+
+</script>
+</head>
+<body>
+
+<h1>AJAX</h1>
+<h2><b>Acquire data from a file via GET</b></h2>
+<br>
+<button onclick="get_data()"> GET DATA</button>
+<br><br>
+<h3><b>Write Data to send at Localhost and getback by POST</b></h3>
+Name:&nbsp<input type="text"name="name" id="name">
+<br>
+Email:&nbsp<input type="text"name="Email" id="Email">
+<br><br>
+<button onclick="post_data()"> POST DATA</button>
+<div id="myDiv"></div>
+
+</body>
+</html>
